@@ -36,14 +36,14 @@ opt = lapp[[
 
     --sgm                   (default 1)
     --post                  (default 1)
-    --nyu_cost_agg_1        (default 2)
+    --nyu_cost_agg_1        (default 0)
     --nyu_cost_agg_2        (default 0)
-    --confLoc               (default 1)
+    --confLoc               (default 0)
     --thres                 (default 23)
 
     --small                 (default 0)
     --koi_sgm               (default 0)
-    --koi_sps               (default 1)
+    --koi_sps               (default 0)
     --unary_scale           (default 0)
 ]]
 print(opt)
