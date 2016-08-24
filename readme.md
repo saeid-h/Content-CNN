@@ -31,7 +31,7 @@
 ## Testing
 1. Sample running script is:
 
-	`th inference_match_subimg.lua -g 0 --model split_win37_dep9 --data_version kitti2015 --data_root /ais/gobi3/datasets/kitti/scene_flow/training --perm_fn preprocess/debug_15/myPerm.bin --model_param logs/debug_15/param_epoch_10.t7 --bn_meanstd logs/debug_15/param_epoch_10.t7 --saveDir outImg --start_id 161 --n 1`
+	`th inference_match_subimg.lua -g 0 --model split_win37_dep9 --data_version kitti2015 --data_root /ais/gobi3/datasets/kitti/scene_flow/training --perm_fn preprocess/debug_15/myPerm.bin --model_param logs/debug_15/param_epoch_10.t7 --bn_meanstd logs/debug_15/bn_meanvar_epoch_10.t7 --saveDir outImg --start_id 161 --n 1`
 
 	remember to change **data_root** as proper directory for images, **perm_fn** for permutation on file list(generated automatically from preprcess script), **model_param** for parameters, **bn_meanstd** for batch normalization statistics and **start_id** for image id for validation(since we are training on 160 images, we validate on images from 161th). It should take less than a second for one image.
 	
