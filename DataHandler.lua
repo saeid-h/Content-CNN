@@ -115,10 +115,11 @@ function DataHandler:next_batch()
         local img_id, loc_type, center_x, center_y, right_center_x = self.tr_loc[self.tr_perm[i]][1], self.tr_loc[self.tr_perm[i]][2], self.tr_loc[self.tr_perm[i]][3], self.tr_loc[self.tr_perm[i]][4], self.tr_loc[self.tr_perm[i]][5]
         local right_center_y = center_y
         
-        self.batch_left[idx] = self.ldata[img_id][{{}, {center_y-self.psz, center_y+self.psz}, {center_x-self.psz, center_x+self.psz}}]
         if loc_type == 1 then -- horizontal
+            self.batch_left[idx] = self.ldata[img_id][{{}, {center_y-self.psz, center_y+self.psz}, {center_x-self.psz, center_x+self.psz}}]
             self.batch_right[idx] = self.rdata[img_id][{{}, {right_center_y-self.psz, right_center_y+self.psz}, {right_center_x-self.psz-self.half_range, right_center_x+self.psz+self.half_range}}]
         elseif loc_type == 2 then -- vertical
+            self.batch_left[idx] = self.ldata[img_id][{{}, {center_y-self.psz, center_y+self.psz}, {center_x-self.psz, center_x+self.psz}}]:transpose(2,3)
             self.batch_right[idx] = self.rdata[img_id][{{}, {right_center_y-self.psz-self.half_range, right_center_y+self.psz+self.half_range}, {right_center_x-self.psz, right_center_x+self.psz}}]:transpose(2,3)
         end
         -- label is always half_range + 1
